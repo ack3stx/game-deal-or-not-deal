@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -8,25 +8,139 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Splash View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="juegoBurciaga" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SplashViewController" customModule="juegoBurciaga" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="900.png" translatesAutoresizingMaskIntoConstraints="NO" id="F8r-dS-Vbu">
+                                <rect key="frame" x="-500" y="388" width="354" height="222"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="imvSplash" destination="F8r-dS-Vbu" id="rn7-tF-rCf"/>
+                        <segue destination="fth-ke-tBr" kind="presentation" identifier="sgSplash" modalPresentationStyle="fullScreen" id="Jxh-wK-Rrs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="-2"/>
+            <point key="canvasLocation" x="111" y="-8"/>
+        </scene>
+        <!--Record View Controller-->
+        <scene sceneID="B7j-fc-1nA">
+            <objects>
+                <viewController id="6Wk-dB-Xuo" customClass="RecordViewController" customModule="juegoBurciaga" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Lh-5D-gkm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="qAy-bp-xZm"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zeG-Qt-O16" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1809" y="-781"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="jmo-qP-4Hc">
+            <objects>
+                <viewController id="fth-ke-tBr" customClass="MenuViewController" customModule="juegoBurciaga" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ykF-2I-tNb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AXS_DealOrNoDeal_564x564.png" translatesAutoresizingMaskIntoConstraints="NO" id="5TJ-qx-ELL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="255.5"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZG-7P-kCd">
+                                <rect key="frame" x="80" y="285.5" width="160" height="45.5"/>
+                                <color key="backgroundColor" red="1" green="0.86981904553145462" blue="0.39537025607737619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="JUGAR">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Deo-vw-zLc">
+                                <rect key="frame" x="80" y="361" width="160" height="45.5"/>
+                                <color key="backgroundColor" red="1" green="0.8698190455" blue="0.39537025609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="RECORDS">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6X-zZ-Wwz">
+                                <rect key="frame" x="80" y="436.5" width="160" height="45.5"/>
+                                <color key="backgroundColor" red="1" green="0.8698190455" blue="0.39537025609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="CREDITOS">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WjL-d5-LQS"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Deo-vw-zLc" firstAttribute="width" secondItem="RZG-7P-kCd" secondAttribute="width" id="5e1-k8-kU5"/>
+                            <constraint firstItem="Deo-vw-zLc" firstAttribute="centerX" secondItem="ykF-2I-tNb" secondAttribute="centerX" id="5rf-Mo-QxL"/>
+                            <constraint firstItem="5TJ-qx-ELL" firstAttribute="width" secondItem="ykF-2I-tNb" secondAttribute="width" id="A4T-FW-a9w"/>
+                            <constraint firstItem="5TJ-qx-ELL" firstAttribute="height" secondItem="ykF-2I-tNb" secondAttribute="height" multiplier="0.45" id="AMD-wv-aVK"/>
+                            <constraint firstItem="RZG-7P-kCd" firstAttribute="height" secondItem="ykF-2I-tNb" secondAttribute="height" multiplier="0.08" id="HC3-pA-gWM"/>
+                            <constraint firstItem="f6X-zZ-Wwz" firstAttribute="centerX" secondItem="ykF-2I-tNb" secondAttribute="centerX" id="IS0-OL-SEu"/>
+                            <constraint firstItem="f6X-zZ-Wwz" firstAttribute="width" secondItem="Deo-vw-zLc" secondAttribute="width" id="RBJ-Qr-yR1"/>
+                            <constraint firstItem="Deo-vw-zLc" firstAttribute="top" secondItem="RZG-7P-kCd" secondAttribute="bottom" constant="30" id="RoV-gW-CiB"/>
+                            <constraint firstItem="f6X-zZ-Wwz" firstAttribute="top" secondItem="Deo-vw-zLc" secondAttribute="bottom" constant="30" id="VvH-0c-jxn"/>
+                            <constraint firstItem="5TJ-qx-ELL" firstAttribute="top" secondItem="WjL-d5-LQS" secondAttribute="top" id="loK-lI-AhY"/>
+                            <constraint firstItem="RZG-7P-kCd" firstAttribute="width" secondItem="5TJ-qx-ELL" secondAttribute="width" multiplier="0.5" id="m35-jK-wyI"/>
+                            <constraint firstItem="RZG-7P-kCd" firstAttribute="centerX" secondItem="ykF-2I-tNb" secondAttribute="centerX" id="nml-e3-Jn2"/>
+                            <constraint firstItem="5TJ-qx-ELL" firstAttribute="centerX" secondItem="ykF-2I-tNb" secondAttribute="centerX" id="peb-ZB-VQf"/>
+                            <constraint firstItem="RZG-7P-kCd" firstAttribute="top" secondItem="5TJ-qx-ELL" secondAttribute="bottom" constant="30" id="v0k-aS-cFn"/>
+                            <constraint firstItem="f6X-zZ-Wwz" firstAttribute="height" secondItem="Deo-vw-zLc" secondAttribute="height" id="wEw-br-MzN"/>
+                            <constraint firstItem="Deo-vw-zLc" firstAttribute="height" secondItem="RZG-7P-kCd" secondAttribute="height" id="xkM-ET-g82"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnCreditos" destination="f6X-zZ-Wwz" id="fzP-iH-XOK"/>
+                        <outlet property="btnJugar" destination="RZG-7P-kCd" id="nqB-Fv-p9s"/>
+                        <outlet property="btnMarcador" destination="Deo-vw-zLc" id="FMR-zH-Qoc"/>
+                        <segue destination="1rA-hp-eNg" kind="presentation" identifier="sgCreditos" id="zEg-RD-M7N"/>
+                        <segue destination="6Wk-dB-Xuo" kind="presentation" identifier="sgRecord" id="M9T-Lr-ZqF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2a2-gd-hHK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1012.5" y="-8.4507042253521121"/>
+        </scene>
+        <!--Creditos View Controller-->
+        <scene sceneID="Ch2-td-2hc">
+            <objects>
+                <viewController id="1rA-hp-eNg" customClass="CreditosViewController" customModule="juegoBurciaga" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f9i-m9-Zcx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="HWB-ge-tiB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BGx-6c-lgq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2175" y="-8"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="900.png" width="900" height="900"/>
+        <image name="AXS_DealOrNoDeal_564x564.png" width="564" height="564"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
