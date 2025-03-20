@@ -21,7 +21,6 @@ class JuegoViewController: UIViewController {
     @IBOutlet var btnMaletines: [UIButton]!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(progreso.valores)
         valores = progreso.valores
         seleccionados = progreso.seleccionados
         seleccionadosTag = progreso.seleccionadosTag
@@ -81,7 +80,10 @@ class JuegoViewController: UIViewController {
             }
             ronda += 1
         }
-        else if ronda == 15 {
+        else if ronda == 5 {
+            self.performSegue(withIdentifier: "banco", sender: nil)
+        }
+        else if ronda == 6 {
             numero = sender.tag
             self.performSegue(withIdentifier: "resultadoFinal", sender: nil)
         }
@@ -100,7 +102,7 @@ class JuegoViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "abrirMaletin" {
             let vc = segue.destination as! ResultadoViewController
-            vc.progreso = self
+            vc.numero = self.numero
         }
         else if segue.identifier == "resultadoFinal" {
             let vc = segue.destination as! FinalViewController
@@ -119,28 +121,5 @@ class JuegoViewController: UIViewController {
         progreso.ronda = ronda
         progreso.maletinGuardadoTag = maletinGuardadoTag
     }
-    
-    func regresar() {
-//        self.valores = progreso.valores
-//        self.seleccionados = progreso.seleccionados
-//        self.seleccionadosTag = progreso.seleccionadosTag
-//        self.ronda = progreso.ronda
-//        self.maletinGuardadoTag = progreso.maletinGuardadoTag
-//        self.progreso = Datos.sharedDatos()
-    }
-    
-//    var seleccionados: [Int] = []
-//    var seleccionadosTag: [Int] = []
-//    var ronda: Int = 0
-//    var maletinGuardadoTag: Int = -1
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
