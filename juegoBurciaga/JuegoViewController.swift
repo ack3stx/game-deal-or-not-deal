@@ -80,7 +80,7 @@ class JuegoViewController: UIViewController {
             }
             ronda += 1
         }
-        else if ronda == 5 {
+        else if ronda == 2 {
             self.performSegue(withIdentifier: "banco", sender: nil)
         }
         else if ronda == 6 {

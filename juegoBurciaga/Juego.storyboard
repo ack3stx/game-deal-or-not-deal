@@ -348,7 +348,6 @@
                         <outletCollection property="btnMaletines" destination="KE8-w8-e7j" collectionClass="NSMutableArray" id="mN3-VW-yxT"/>
                         <segue destination="Y6W-OH-hqX" kind="presentation" identifier="abrirMaletin" modalPresentationStyle="fullScreen" id="sLg-jR-dzP"/>
                         <segue destination="ePO-3G-RpT" kind="presentation" identifier="resultadoFinal" modalPresentationStyle="fullScreen" id="ONu-VL-bOS"/>
-                        <segue destination="bg4-CC-iXH" kind="presentation" identifier="banco" modalPresentationStyle="fullScreen" id="M3C-Ab-eYd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0NK-Is-08N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -991,11 +990,12 @@
                         <outletCollection property="lblValores" destination="0Z5-d2-zdK" collectionClass="NSMutableArray" id="Wf2-Hm-nI3"/>
                         <outletCollection property="lblValores" destination="lm7-wx-TWc" collectionClass="NSMutableArray" id="Rpq-Ec-rxe"/>
                         <segue destination="4Oa-MC-4sP" kind="presentation" identifier="regresarJuego" modalPresentationStyle="fullScreen" id="CM9-EZ-ftE"/>
+                        <segue destination="bg4-CC-iXH" kind="presentation" identifier="banco" modalPresentationStyle="fullScreen" id="kev-kZ-iqe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-754" y="1457"/>
+            <point key="canvasLocation" x="-615" y="1457"/>
         </scene>
         <!--Final View Controller-->
         <scene sceneID="Ioy-gC-2y4">
@@ -1070,7 +1070,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FSd-7h-qtI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="1458"/>
+            <point key="canvasLocation" x="-1655" y="1435"/>
         </scene>
         <!--Banco View Controller-->
         <scene sceneID="xJa-lE-QqZ">
@@ -1171,8 +1171,8 @@
                     </view>
                     <connections>
                         <outlet property="lblPremio" destination="luO-8b-8Ny" id="iK7-Kk-p43"/>
-                        <segue destination="4Oa-MC-4sP" kind="presentation" identifier="regresarJuego" modalPresentationStyle="fullScreen" id="mvi-vN-kei"/>
                         <segue destination="eYH-cB-8aY" kind="presentation" identifier="premio" modalPresentationStyle="fullScreen" id="Pvl-hV-rk6"/>
+                        <segue destination="4Oa-MC-4sP" kind="presentation" identifier="regresarJuego" modalPresentationStyle="fullScreen" id="BdU-RZ-7C3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJj-m1-Xle" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1265,12 +1265,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xen-Dd-GCK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="974" y="2195"/>
+            <point key="canvasLocation" x="-129" y="2180"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Pvl-hV-rk6"/>
-        <segue reference="mvi-vN-kei"/>
+        <segue reference="P9K-Bj-RFw"/>
+        <segue reference="CM9-EZ-ftE"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Titulo.png" width="900" height="900"/>
