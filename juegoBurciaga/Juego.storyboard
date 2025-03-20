@@ -1097,6 +1097,9 @@
                                 <state key="normal" title="DEAL">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="Deal" destination="bg4-CC-iXH" eventType="touchUpInside" id="it2-TV-1PX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgR-cm-sjO">
                                 <rect key="frame" x="50" y="579.66666666666663" width="290" height="87"/>
@@ -1109,6 +1112,9 @@
                                 <state key="normal" title="NOT DEAL">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="NoDeal" destination="bg4-CC-iXH" eventType="touchUpInside" id="mcB-Kg-sfA"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BANK OFFER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnb-Ne-OVw">
                                 <rect key="frame" x="30" y="322" width="330" height="33"/>
@@ -1164,6 +1170,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblPremio" destination="luO-8b-8Ny" id="iK7-Kk-p43"/>
                         <segue destination="4Oa-MC-4sP" kind="presentation" identifier="regresarJuego" modalPresentationStyle="fullScreen" id="mvi-vN-kei"/>
                         <segue destination="eYH-cB-8aY" kind="presentation" identifier="premio" modalPresentationStyle="fullScreen" id="Pvl-hV-rk6"/>
                     </connections>
@@ -1263,7 +1270,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Pvl-hV-rk6"/>
-        <segue reference="CM9-EZ-ftE"/>
+        <segue reference="mvi-vN-kei"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Titulo.png" width="900" height="900"/>

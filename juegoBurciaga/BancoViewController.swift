@@ -9,13 +9,26 @@ import UIKit
 
 class BancoViewController: UIViewController {
 
+    @IBOutlet weak var lblPremio: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    
 
+    @IBAction func Deal() {
+        self.performSegue(withIdentifier: "premio", sender: nil)
+    }
+    
+    
+    @IBAction func NoDeal() {
+        self.performSegue(withIdentifier: "regresarJuego", sender: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
