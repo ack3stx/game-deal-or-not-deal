@@ -47,7 +47,13 @@ class ResultadoViewController: UIViewController {
                     }
                     Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
                         UIView.animate(withDuration: 2) {
-                            self.performSegue(withIdentifier: "regresarJuego", sender: nil)
+                            if self.progreso.ronda == 5 {
+                                self.progreso.ronda += 1
+                                self.performSegue(withIdentifier: "banco", sender: nil)
+                            }
+                            else {
+                                self.performSegue(withIdentifier: "regresarJuego", sender: nil)
+                            }
                         }
                     }
                 }
