@@ -31,4 +31,11 @@ class MenuViewController: UIViewController {
             button.layer.shadowOpacity = 1.0
         }
 
+    @IBAction func empezarJuego(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Juego", bundle: nil)
+        
+        let juegovc = storyboard.instantiateViewController(withIdentifier: "juego")
+        juegovc.modalPresentationStyle = .fullScreen
+        present(juegovc, animated: true)
+    }
 }

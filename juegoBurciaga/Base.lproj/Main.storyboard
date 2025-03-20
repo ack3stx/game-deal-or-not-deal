@@ -51,7 +51,7 @@
         <!--Menu View Controller-->
         <scene sceneID="jmo-qP-4Hc">
             <objects>
-                <viewController id="fth-ke-tBr" customClass="MenuViewController" customModule="juegoBurciaga" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menu" id="fth-ke-tBr" customClass="MenuViewController" customModule="juegoBurciaga" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ykF-2I-tNb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,6 +67,9 @@
                                 <state key="normal" title="JUGAR">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="empezarJuego:" destination="fth-ke-tBr" eventType="touchUpInside" id="hXq-HT-p0x"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Deo-vw-zLc">
                                 <rect key="frame" x="80" y="361" width="160" height="45.5"/>
@@ -76,6 +79,9 @@
                                 <state key="normal" title="RECORDS">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="6Wk-dB-Xuo" kind="presentation" id="Xv1-yc-sUU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6X-zZ-Wwz">
                                 <rect key="frame" x="80" y="436.5" width="160" height="45.5"/>
@@ -85,6 +91,9 @@
                                 <state key="normal" title="CREDITOS">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1rA-hp-eNg" kind="presentation" id="IvN-9V-TWk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WjL-d5-LQS"/>
@@ -112,8 +121,6 @@
                         <outlet property="btnCreditos" destination="f6X-zZ-Wwz" id="fzP-iH-XOK"/>
                         <outlet property="btnJugar" destination="RZG-7P-kCd" id="nqB-Fv-p9s"/>
                         <outlet property="btnMarcador" destination="Deo-vw-zLc" id="FMR-zH-Qoc"/>
-                        <segue destination="1rA-hp-eNg" kind="presentation" identifier="sgCreditos" id="zEg-RD-M7N"/>
-                        <segue destination="6Wk-dB-Xuo" kind="presentation" identifier="sgRecord" id="M9T-Lr-ZqF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2a2-gd-hHK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -127,8 +134,23 @@
                     <view key="view" contentMode="scaleToFill" id="f9i-m9-Zcx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREDITOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6p-ku-FFp">
+                                <rect key="frame" x="80" y="0.0" width="160" height="27.5"/>
+                                <color key="backgroundColor" red="1" green="0.8698190455" blue="0.39537025609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HWB-ge-tiB"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="e6p-ku-FFp" firstAttribute="height" secondItem="f9i-m9-Zcx" secondAttribute="height" multiplier="0.05" id="8gV-Nk-0P8"/>
+                            <constraint firstItem="e6p-ku-FFp" firstAttribute="top" secondItem="HWB-ge-tiB" secondAttribute="top" id="OpX-2N-TrY"/>
+                            <constraint firstItem="e6p-ku-FFp" firstAttribute="width" secondItem="f9i-m9-Zcx" secondAttribute="width" multiplier="0.5" id="pkw-8o-ksK"/>
+                            <constraint firstItem="e6p-ku-FFp" firstAttribute="centerX" secondItem="f9i-m9-Zcx" secondAttribute="centerX" id="tRM-CZ-zmS"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGx-6c-lgq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
