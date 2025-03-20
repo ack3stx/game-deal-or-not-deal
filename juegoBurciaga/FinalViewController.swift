@@ -10,9 +10,8 @@ import UIKit
 class FinalViewController: UIViewController {
 
     @IBOutlet weak var maletinGuardado: UIButton!
-    @IBOutlet weak var lblMaletinGuardado: UILabel!
     @IBOutlet weak var btnUltimoMaletin: UIButton!
-    @IBOutlet weak var lblUltimoMaletin: UILabel!
+    @IBOutlet weak var mostrarMaletin: UIView!
     var maletinGuardadoTag: Int = 0
     var valorMaletinGuardado: Int = 0
     var ultimoMaletinTag: Int = 0
@@ -22,17 +21,23 @@ class FinalViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         maletinGuardado.setTitle(String(maletinGuardadoTag), for: .normal)
-        lblMaletinGuardado.text = "$ \(valorMaletinGuardado)"
         btnUltimoMaletin.setTitle(String(ultimoMaletinTag), for: .normal)
-        lblUltimoMaletin.text = "$ \(valorUltimoMaletin)"
-        
         maletinGuardado.tag = maletinGuardadoTag
         btnUltimoMaletin.tag = ultimoMaletinTag
-        btnUltimoMaletin.isEnabled = false
-        btnUltimoMaletin.setTitle("", for: .normal)
     }
     
     @IBAction func abrirMaletin(_ sender: UIButton) {
+        maletinGuardado.isUserInteractionEnabled = false
+        btnUltimoMaletin.isUserInteractionEnabled = false
+        UIView.animate(withDuration: 2) {
+            sender.frame.origin.x = self.mostrarMaletin.frame.origin.x + (self.mostrarMaletin.frame.width / 2) - (sender.frame.width / 2)
+            sender.frame.origin.y = self.mostrarMaletin.frame.origin.y + (self.mostrarMaletin.frame.height / 2) - (sender.frame.height / 2)
+            
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
+                self.performSegue(withIdentifier: "resultadoFinal", sender: nil)
+            }
+            
+        }
         
     }
     

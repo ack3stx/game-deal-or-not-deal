@@ -15,14 +15,9 @@ class ResultadoViewController: UIViewController {
     var numero:Int!
     var seleccionados: [Int]!
     var valorSeleccionado: Int!
-    var seleccionadosTag: [Int]!
-    var valores: [Int]!
-    var maletinGuardadoTag: Int!
-    
-    var progreso: JuegoViewController!
+    var progreso = Datos.sharedDatos()
     override func viewDidLoad() {
         super.viewDidLoad()
-        numero = progreso.numero
         valorSeleccionado = progreso.valores[numero - 1]
         seleccionados = progreso.seleccionados
         // Do any additional setup after loading the view.
@@ -57,13 +52,6 @@ class ResultadoViewController: UIViewController {
                     }
                 }
             }
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "regresarJuego" {
-            let vc = segue.destination as! JuegoViewController
-            vc.regresar()
         }
     }
 

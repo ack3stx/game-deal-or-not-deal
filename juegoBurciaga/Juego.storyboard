@@ -348,7 +348,7 @@
                         <outletCollection property="btnMaletines" destination="KE8-w8-e7j" collectionClass="NSMutableArray" id="mN3-VW-yxT"/>
                         <segue destination="Y6W-OH-hqX" kind="presentation" identifier="abrirMaletin" modalPresentationStyle="fullScreen" id="sLg-jR-dzP"/>
                         <segue destination="ePO-3G-RpT" kind="presentation" identifier="resultadoFinal" modalPresentationStyle="fullScreen" id="ONu-VL-bOS"/>
-                        <segue destination="bg4-CC-iXH" kind="presentation" identifier="banco" id="M3C-Ab-eYd"/>
+                        <segue destination="bg4-CC-iXH" kind="presentation" identifier="banco" modalPresentationStyle="fullScreen" id="M3C-Ab-eYd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0NK-Is-08N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1008,18 +1008,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondoJuego.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="r1I-Ef-zR6">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 10000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vn7-rc-XHz">
-                                <rect key="frame" x="32" y="408.66666666666669" width="131" height="27"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 10000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIF-E0-3Zk">
-                                <rect key="frame" x="227" y="408.66666666666669" width="131" height="27"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6x-qu-jhD">
                                 <rect key="frame" x="19.666666666666671" y="344" width="156" height="156"/>
                                 <constraints>
@@ -1044,7 +1032,17 @@
                                 <state key="normal" title="1" backgroundImage="maletin.png">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="abrirMaletin:" destination="ePO-3G-RpT" eventType="touchUpInside" id="Epr-s3-hB0"/>
+                                </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMa-OQ-YEj">
+                                <rect key="frame" x="165" y="560.66666666666663" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vMa-OQ-YEj" secondAttribute="height" id="eNe-G6-8SH"/>
+                                    <constraint firstAttribute="width" constant="60" id="tID-vx-C56"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nt3-bq-bZS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1052,27 +1050,22 @@
                             <constraint firstItem="C6x-qu-jhD" firstAttribute="centerX" secondItem="7lZ-mn-0MZ" secondAttribute="centerX" multiplier="0.5" id="0xz-CA-87B"/>
                             <constraint firstItem="xL9-EO-PEm" firstAttribute="centerX" secondItem="7lZ-mn-0MZ" secondAttribute="centerX" multiplier="1.5" id="6Oo-ny-tAc"/>
                             <constraint firstItem="C6x-qu-jhD" firstAttribute="centerY" secondItem="7lZ-mn-0MZ" secondAttribute="centerY" id="7On-uC-d1u"/>
+                            <constraint firstItem="vMa-OQ-YEj" firstAttribute="centerY" secondItem="7lZ-mn-0MZ" secondAttribute="centerY" multiplier="1.4" id="FZZ-3w-w0I"/>
                             <constraint firstItem="nt3-bq-bZS" firstAttribute="bottom" secondItem="r1I-Ef-zR6" secondAttribute="bottom" id="Guz-1a-wlN"/>
                             <constraint firstItem="r1I-Ef-zR6" firstAttribute="top" secondItem="nt3-bq-bZS" secondAttribute="top" id="IyY-zg-LUE"/>
-                            <constraint firstItem="vn7-rc-XHz" firstAttribute="centerY" secondItem="7lZ-mn-0MZ" secondAttribute="centerY" id="Mh3-4g-gwI"/>
                             <constraint firstItem="xL9-EO-PEm" firstAttribute="centerY" secondItem="7lZ-mn-0MZ" secondAttribute="centerY" id="Pmz-O9-uuh"/>
-                            <constraint firstItem="vn7-rc-XHz" firstAttribute="centerX" secondItem="7lZ-mn-0MZ" secondAttribute="centerX" multiplier="0.5" id="TX6-HE-JRC"/>
-                            <constraint firstItem="vn7-rc-XHz" firstAttribute="width" secondItem="C6x-qu-jhD" secondAttribute="width" multiplier="0.839744" id="X03-TF-2v8"/>
-                            <constraint firstItem="WIF-E0-3Zk" firstAttribute="width" secondItem="xL9-EO-PEm" secondAttribute="width" multiplier="0.839744" id="bCo-zM-2Cr"/>
-                            <constraint firstItem="WIF-E0-3Zk" firstAttribute="centerX" secondItem="7lZ-mn-0MZ" secondAttribute="centerX" multiplier="1.5" id="bWa-xW-DaE"/>
+                            <constraint firstItem="vMa-OQ-YEj" firstAttribute="centerX" secondItem="7lZ-mn-0MZ" secondAttribute="centerX" id="UnE-hz-1rw"/>
                             <constraint firstItem="xL9-EO-PEm" firstAttribute="width" secondItem="C6x-qu-jhD" secondAttribute="width" id="hqH-cg-tbl"/>
                             <constraint firstItem="r1I-Ef-zR6" firstAttribute="leading" secondItem="nt3-bq-bZS" secondAttribute="leading" id="iT1-3d-dzC"/>
                             <constraint firstItem="nt3-bq-bZS" firstAttribute="trailing" secondItem="r1I-Ef-zR6" secondAttribute="trailing" id="sP1-DH-GNn"/>
-                            <constraint firstItem="WIF-E0-3Zk" firstAttribute="centerY" secondItem="7lZ-mn-0MZ" secondAttribute="centerY" id="tL5-Lf-y5D"/>
                             <constraint firstItem="C6x-qu-jhD" firstAttribute="width" secondItem="7lZ-mn-0MZ" secondAttribute="width" multiplier="0.4" id="tou-LJ-53d"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnUltimoMaletin" destination="xL9-EO-PEm" id="IG2-93-ymC"/>
-                        <outlet property="lblMaletinGuardado" destination="vn7-rc-XHz" id="evf-UR-Hti"/>
-                        <outlet property="lblUltimoMaletin" destination="WIF-E0-3Zk" id="ns6-K3-GCb"/>
                         <outlet property="maletinGuardado" destination="C6x-qu-jhD" id="1tr-Jh-1sN"/>
-                        <segue destination="eYH-cB-8aY" kind="presentation" identifier="premio" id="P9K-Bj-RFw"/>
+                        <outlet property="mostrarMaletin" destination="vMa-OQ-YEj" id="08l-d9-LaU"/>
+                        <segue destination="eYH-cB-8aY" kind="presentation" identifier="premio" modalPresentationStyle="fullScreen" id="P9K-Bj-RFw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FSd-7h-qtI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1084,7 +1077,7 @@
             <objects>
                 <viewController id="bg4-CC-iXH" customClass="BancoViewController" customModule="juegoBurciaga" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jyM-8q-XI1">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="834"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagenbankero.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="abs-bR-Etw">
@@ -1171,8 +1164,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="4Oa-MC-4sP" kind="presentation" identifier="regresarJuego" id="mvi-vN-kei"/>
-                        <segue destination="eYH-cB-8aY" kind="presentation" identifier="premio" id="Pvl-hV-rk6"/>
+                        <segue destination="4Oa-MC-4sP" kind="presentation" identifier="regresarJuego" modalPresentationStyle="fullScreen" id="mvi-vN-kei"/>
+                        <segue destination="eYH-cB-8aY" kind="presentation" identifier="premio" modalPresentationStyle="fullScreen" id="Pvl-hV-rk6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJj-m1-Xle" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1184,14 +1177,14 @@
             <objects>
                 <viewController id="eYH-cB-8aY" customClass="EndGameViewController" customModule="juegoBurciaga" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4N1-lL-uJP">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="834"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pixelcut-export.png" translatesAutoresizingMaskIntoConstraints="NO" id="WlR-Qm-hjo">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="834"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGr-Py-nnO">
-                                <rect key="frame" x="0.0" y="319.66666666666669" width="390" height="195.00000000000006"/>
+                                <rect key="frame" x="0.0" y="324.66666666666669" width="390" height="195.00000000000006"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONGRATULATIONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8e-g3-0ka">
                                         <rect key="frame" x="10" y="10" width="370" height="36"/>
@@ -1232,7 +1225,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZ8-Mr-00K">
-                                <rect key="frame" x="40" y="742" width="310" height="62"/>
+                                <rect key="frame" x="40" y="752" width="310" height="62"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.72156862749999995" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fZ8-Mr-00K" secondAttribute="height" multiplier="65:13" id="8Kb-yI-mLa"/>
