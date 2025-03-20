@@ -11,31 +11,60 @@ class ResultadoViewController: UIViewController {
 
     @IBOutlet weak var btnMaletin: UIButton!
     @IBOutlet var lblValores: [UIView]!
+    @IBOutlet weak var lblResultado: UILabel!
     var numero:Int!
     var seleccionados: [Int]!
+    var valorSeleccionado: Int!
+    var seleccionadosTag: [Int]!
+    var valores: [Int]!
+    var maletinGuardadoTag: Int!
+    
+    var progreso: JuegoViewController!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        numero = progreso.numero
+        valorSeleccionado = progreso.valores[numero - 1]
+        seleccionados = progreso.seleccionados
         // Do any additional setup after loading the view.
         btnMaletin.setTitle(String(numero), for: .normal)
         btnMaletin.isUserInteractionEnabled = false
-        
+        lblResultado.text = "$ \(valorSeleccionado!)"
+        lblResultado.frame = CGRect(x: btnMaletin.frame.origin.x + btnMaletin.frame.width / 2 - lblResultado.frame.width / 2, y: btnMaletin.frame.origin.y + btnMaletin.frame.height / 2 - lblResultado.frame.height - 10, width: lblResultado.frame.width, height: lblResultado.frame.height)
         for views in lblValores {
             for seleccionado in seleccionados {
-                if seleccionado != numero && views.tag == seleccionado {
+                if seleccionado != valorSeleccionado && views.tag == seleccionado {
                     views.alpha = 0.4
                 }
             }
         }
-        
     }
     override func viewDidAppear(_ animated: Bool) {
-        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { timer in
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
             UIView.animate(withDuration: 2) {
                 self.btnMaletin.alpha = 0
             }
+            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
+                UIView.animate(withDuration: 2) {
+                    for views in self.lblValores {
+                        if views.tag == self.valorSeleccionado {
+                            views.alpha = 0.4
+                        }
+                    }
+                    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
+                        UIView.animate(withDuration: 2) {
+                            self.performSegue(withIdentifier: "regresarJuego", sender: nil)
+                        }
+                    }
+                }
+            }
         }
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "regresarJuego" {
+            let vc = segue.destination as! JuegoViewController
+            vc.regresar()
+        }
     }
 
     /*
