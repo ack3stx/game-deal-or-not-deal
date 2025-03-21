@@ -80,11 +80,12 @@ class JuegoViewController: UIViewController {
             }
             ronda += 1
         }
-        else if ronda == 6 {
+        else if ronda == 15 {
             numero = sender.tag
             self.performSegue(withIdentifier: "resultadoFinal", sender: nil)
         }
         else {
+            
             numero = sender.tag
             sender.isEnabled = false
             
@@ -92,6 +93,7 @@ class JuegoViewController: UIViewController {
             seleccionadosTag.append(numero)
             
             ronda += 1
+            print(ronda)
             self.performSegue(withIdentifier: "abrirMaletin", sender: nil)
         }
     }

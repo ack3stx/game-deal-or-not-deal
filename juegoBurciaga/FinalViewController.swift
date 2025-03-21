@@ -34,7 +34,7 @@ class FinalViewController: UIViewController {
             sender.frame.origin.y = self.mostrarMaletin.frame.origin.y + (self.mostrarMaletin.frame.height / 2) - (sender.frame.height / 2)
             
             Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
-                self.performSegue(withIdentifier: "resultadoFinal", sender: nil)
+                self.performSegue(withIdentifier: "premio", sender: nil)
             }
             
         }

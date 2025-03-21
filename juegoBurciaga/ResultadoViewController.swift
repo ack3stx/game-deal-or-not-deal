@@ -47,8 +47,8 @@ class ResultadoViewController: UIViewController {
                     }
                     Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
                         UIView.animate(withDuration: 2) {
-                            if self.progreso.ronda == 5 {
-                                self.progreso.ronda += 1
+                            let ronda = self.progreso.ronda
+                            if ronda == 5 || ronda == 8 || ronda == 10 || ronda == 12 || ronda == 13 || ronda == 14 || ronda == 15 {
                                 self.performSegue(withIdentifier: "banco", sender: nil)
                             }
                             else {
