@@ -80,9 +80,6 @@ class JuegoViewController: UIViewController {
             }
             ronda += 1
         }
-        else if ronda == 2 {
-            self.performSegue(withIdentifier: "banco", sender: nil)
-        }
         else if ronda == 6 {
             numero = sender.tag
             self.performSegue(withIdentifier: "resultadoFinal", sender: nil)
