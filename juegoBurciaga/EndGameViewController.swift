@@ -9,8 +9,14 @@ import UIKit
 
 class EndGameViewController: UIViewController {
 
+    
+    var progreso = Datos.sharedDatos()
+
+    @IBOutlet weak var lblPremio: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        lblPremio.text = "$ " + String( progreso.valorGanado)
 
         // Do any additional setup after loading the view.
     }
