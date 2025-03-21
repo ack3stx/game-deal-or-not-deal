@@ -26,15 +26,16 @@ class BancoViewController: UIViewController {
     
     func calcularPremio() -> Int {
         
-
-        for progreso.valores in progreso.valores {
+        for i in 0 ..< progreso.valores.count {
             // Verificamos si el valor NO está en el array de seleccionados
-            if !progreso.seleccionados.contains(valor) {
+            if !progreso.seleccionados.contains(progreso.valores[i]) {
                 // Si no está seleccionado, lo sumamos al total
-                CantidadTotal += valor
+                CantidadTotal += progreso.valores[i]
             }
         }
         
+        CantidadTotal = CantidadTotal / progreso.seleccionados.count
+
         return CantidadTotal
         
     }
