@@ -42,7 +42,8 @@ class ResultadoViewController: UIViewController {
                 UIView.animate(withDuration: 2) {
                     for views in self.lblValores {
                         if views.tag == self.valorSeleccionado {
-                            views.alpha = 0.4
+                            //views.alpha = 0.4
+                            self.discardValueWithShake(views)
                         }
                     }
                     Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
@@ -59,6 +60,18 @@ class ResultadoViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func discardValueWithShake(_ label: UIView) {
+        let shake = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        shake.timingFunction = CAMediaTimingFunction(name: .linear)
+        shake.duration = 0.5
+        shake.values = [-10, 10, -8, 8, -5, 5, 0]
+        label.layer.add(shake, forKey: "shake")
+        
+        UIView.animate(withDuration: 0.5, delay: 0.5, options: [], animations: {
+            label.alpha = 0.4
+        })
     }
 
     /*

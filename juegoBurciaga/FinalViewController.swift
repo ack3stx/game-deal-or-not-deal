@@ -16,14 +16,15 @@ class FinalViewController: UIViewController {
     var valorMaletinGuardado: Int = 0
     var ultimoMaletinTag: Int = 0
     var valorUltimoMaletin: Int = 0
+    var progreso = Datos.sharedDatos()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         maletinGuardado.setTitle(String(maletinGuardadoTag), for: .normal)
         btnUltimoMaletin.setTitle(String(ultimoMaletinTag), for: .normal)
-        maletinGuardado.tag = maletinGuardadoTag
-        btnUltimoMaletin.tag = ultimoMaletinTag
+        maletinGuardado.tag = valorMaletinGuardado
+        btnUltimoMaletin.tag = valorUltimoMaletin
     }
     
     @IBAction func abrirMaletin(_ sender: UIButton) {
@@ -33,6 +34,7 @@ class FinalViewController: UIViewController {
             sender.frame.origin.x = self.mostrarMaletin.frame.origin.x + (self.mostrarMaletin.frame.width / 2) - (sender.frame.width / 2)
             sender.frame.origin.y = self.mostrarMaletin.frame.origin.y + (self.mostrarMaletin.frame.height / 2) - (sender.frame.height / 2)
             
+            self.progreso.valorGanado = sender.tag
             Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
                 self.performSegue(withIdentifier: "premio", sender: nil)
             }

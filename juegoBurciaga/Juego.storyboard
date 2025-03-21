@@ -1045,7 +1045,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nt3-bq-bZS"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="C6x-qu-jhD" firstAttribute="centerX" secondItem="7lZ-mn-0MZ" secondAttribute="centerX" multiplier="0.5" id="0xz-CA-87B"/>
                             <constraint firstItem="xL9-EO-PEm" firstAttribute="centerX" secondItem="7lZ-mn-0MZ" secondAttribute="centerX" multiplier="1.5" id="6Oo-ny-tAc"/>
@@ -1283,9 +1283,6 @@
         <image name="pixelcut-export.png" width="1440" height="2842"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
