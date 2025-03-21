@@ -13,6 +13,7 @@ class Datos: NSObject {
     var seleccionadosTag: [Int]
     var ronda: Int
     var maletinGuardadoTag: Int
+    var valorGanado: Int
     static var datos: Datos!
     
     override init() {
@@ -21,6 +22,7 @@ class Datos: NSObject {
         seleccionadosTag = []
         ronda = 0
         maletinGuardadoTag = -1
+        valorGanado = 0
     }
     
     static func sharedDatos() -> Datos {

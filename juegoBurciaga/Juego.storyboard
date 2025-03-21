@@ -1262,6 +1262,9 @@
                             <constraint firstItem="WlR-Qm-hjo" firstAttribute="top" secondItem="Yon-Sg-bZC" secondAttribute="top" id="xIn-Qx-lg6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lblPremio" destination="QZE-TE-ZIB" id="tB7-9I-Rdn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xen-Dd-GCK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1269,8 +1272,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Pvl-hV-rk6"/>
-        <segue reference="BdU-RZ-7C3"/>
+        <segue reference="P9K-Bj-RFw"/>
+        <segue reference="CM9-EZ-ftE"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Titulo.png" width="900" height="900"/>

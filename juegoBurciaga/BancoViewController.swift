@@ -35,13 +35,24 @@ class BancoViewController: UIViewController {
         }
         
         CantidadTotal = CantidadTotal / progreso.seleccionados.count
+        
+        if (progreso.ronda == 5){
+            
+            let resultado = Double(CantidadTotal) * 0.6
+            CantidadTotal = Int(resultado.rounded())
+
+        }
 
         return CantidadTotal
         
     }
 
     @IBAction func Deal() {
+        
+        progreso.valorGanado = CantidadTotal
         self.performSegue(withIdentifier: "premio", sender: nil)
+        
+        
     }
     
     
