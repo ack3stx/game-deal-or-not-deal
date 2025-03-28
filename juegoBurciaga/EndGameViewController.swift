@@ -28,8 +28,9 @@ class EndGameViewController: UIViewController {
     }
     
     func mostrarAlertaParaNombre(puntaje: Int) {
-        if let menorScore = progreso.obtenerMenorScore(), puntaje <= menorScore && progreso.puntajes.count >= 5 {
-        
+        // Verificamos si hay un menor score y si el puntaje actual es mayor
+        if let menorScore = progreso.obtenerMenorScore(), puntaje > menorScore || progreso.puntajes.count < 5 {
+            
             let alerta = UIAlertController(
                 title: "¡Has roto un nuevo récord con un puntaje de: \(puntaje)!",
                 message: "Ingresa tu nombre",
@@ -50,29 +51,20 @@ class EndGameViewController: UIViewController {
                     jugador: nombre,
                     puntaje: puntaje
                 )
-                
             }
             
             alerta.addAction(guardarAccion)
             present(alerta, animated: true)
-        }
-
-        else{
-            
+        } else {
             let alerta = UIAlertController(
                 title: "¡Gracias por jugar!",
                 message: "Tu puntaje fue de: \(puntaje)",
                 preferredStyle: .alert
             )
 
-            let aceptarAction = UIAlertAction(title: "Aceptar", style: .default) { _ in
-                
-            }
-
+            let aceptarAction = UIAlertAction(title: "Aceptar", style: .default)
             alerta.addAction(aceptarAction)
-
-            self.present(alerta, animated: true, completion: nil)
-            
+            present(alerta, animated: true)
         }
     }
     
