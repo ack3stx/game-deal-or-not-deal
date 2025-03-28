@@ -14,6 +14,7 @@ class Datos: NSObject {
     var ronda: Int
     var maletinGuardadoTag: Int
     var valorGanado: Int
+    var resultadoFinal: [Int] = []
     static var datos: Datos!
     
     override init() {
