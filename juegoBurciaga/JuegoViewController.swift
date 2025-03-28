@@ -16,6 +16,9 @@ class JuegoViewController: UIViewController {
     var seleccionadosTag: [Int] = []
     var ronda: Int = 0
     var maletinGuardadoTag: Int = -1
+    var cronometro = Timer()
+    var tiempo = 0
+    @IBOutlet weak var lblCronometro: UILabel!
     var progreso = Datos.sharedDatos()
     @IBOutlet weak var maletaGuardada: UIView!
     @IBOutlet var btnMaletines: [UIButton]!
@@ -26,8 +29,41 @@ class JuegoViewController: UIViewController {
         seleccionadosTag = progreso.seleccionadosTag
         ronda = progreso.ronda
         maletinGuardadoTag = progreso.maletinGuardadoTag
+        tiempo = progreso.tiempo
         
         // Do any additional setup after loading the view.
+        
+        cronometro = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
+            self.tiempo += 1
+            
+            var segundos = self.tiempo
+            var minutos: Int = 0
+            var horas: Int = 0
+            
+            if segundos >= 60 {
+                minutos = segundos / 60
+                segundos %= 60
+            }
+            
+            
+            if minutos >= 60 {
+                horas = minutos / 60
+                minutos %= 60
+            }
+            
+            var horasString: String = ""
+            if horas > 0 {
+                horasString = String(format: "%02d", horas) + ":"
+            }
+            var minutosString: String = ""
+            if minutos > 0 {
+                minutosString = String(format: "%02d", minutos) + ":"
+            }
+            let segundosString: String = String(format: "%02d", segundos)
+            
+            self.lblCronometro.text = "\(horasString)\(minutosString)\(segundosString)"
+        })
+        
         if valores.count == 0 {
             valores = numeros.shuffled()
         }
@@ -80,14 +116,8 @@ class JuegoViewController: UIViewController {
             }
             ronda += 1
         }
-        else if ronda == 5 {
-            self.performSegue(withIdentifier: "banco", sender: nil)
-        }
-        else if ronda == 6 {
-            numero = sender.tag
-            self.performSegue(withIdentifier: "resultadoFinal", sender: nil)
-        }
         else {
+            
             numero = sender.tag
             sender.isEnabled = false
             
@@ -95,6 +125,15 @@ class JuegoViewController: UIViewController {
             seleccionadosTag.append(numero)
             
             ronda += 1
+            
+            if ronda == 15 {
+                for boton in btnMaletines {
+                    if boton.isEnabled == true && boton.tag != maletinGuardadoTag {
+                        progreso.resultadoFinal = [self.maletinGuardadoTag, self.valores[self.maletinGuardadoTag - 1], boton.tag, self.valores[boton.tag - 1]]
+                    }
+                }
+                
+            }
             self.performSegue(withIdentifier: "abrirMaletin", sender: nil)
         }
     }
@@ -103,13 +142,6 @@ class JuegoViewController: UIViewController {
         if segue.identifier == "abrirMaletin" {
             let vc = segue.destination as! ResultadoViewController
             vc.numero = self.numero
-        }
-        else if segue.identifier == "resultadoFinal" {
-            let vc = segue.destination as! FinalViewController
-            vc.maletinGuardadoTag = self.maletinGuardadoTag
-            vc.valorMaletinGuardado = self.valores[self.maletinGuardadoTag - 1]
-            vc.ultimoMaletinTag = self.numero
-            vc.valorUltimoMaletin = self.valores[self.numero - 1]
         }
         
         guardarProgreso()
@@ -120,6 +152,6 @@ class JuegoViewController: UIViewController {
         progreso.seleccionadosTag = seleccionadosTag
         progreso.ronda = ronda
         progreso.maletinGuardadoTag = maletinGuardadoTag
+        progreso.tiempo = tiempo
     }
-
 }

@@ -9,13 +9,60 @@ import UIKit
 
 class EndGameViewController: UIViewController {
 
+    
+    var progreso = Datos.sharedDatos()
+
+    @IBOutlet weak var lblPremio: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        lblPremio.text = "$ " + String(progreso.valorGanado)
+        mostrarAlertaParaNombre(puntaje: progreso.valorGanado)
+    }
+    
+    func mostrarAlertaParaNombre(puntaje: Int) {
+        let alerta = UIAlertController(
+            title: "¡Has roto un nuevo récord con un puntaje de: \(puntaje)!",
+            message: "Ingresa tu nombre",
+            preferredStyle: .alert
+        )
+        
+        alerta.addTextField { textField in
+            textField.placeholder = "Nombre"
+        }
+        
+        let guardarAccion = UIAlertAction(title: "Guardar", style: .default) { _ in
+            guard let nombre = alerta.textFields?.first?.text, !nombre.isEmpty else {
+                self.mostrarAlertaParaNombre(puntaje: puntaje)
+                return
+            }
+            
+            self.progreso.agregarPuntaje(
+                jugador: nombre,
+                puntaje: puntaje
+            )
+            
+        }
+        
+        alerta.addAction(guardarAccion)
+        present(alerta, animated: true)
+    }    
+    
+    @IBAction func MenuSalir(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let juegovc = storyboard.instantiateViewController(withIdentifier: "menu")
+        juegovc.modalPresentationStyle = .fullScreen
+        present(juegovc, animated: true)
+    }
     /*
     // MARK: - Navigation
 
