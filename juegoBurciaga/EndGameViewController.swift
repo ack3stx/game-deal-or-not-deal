@@ -28,32 +28,53 @@ class EndGameViewController: UIViewController {
     }
     
     func mostrarAlertaParaNombre(puntaje: Int) {
-        let alerta = UIAlertController(
-            title: "¡Has roto un nuevo récord con un puntaje de: \(puntaje)!",
-            message: "Ingresa tu nombre",
-            preferredStyle: .alert
-        )
+        if let menorScore = progreso.obtenerMenorScore(), puntaje <= menorScore && progreso.puntajes.count >= 5 {
         
-        alerta.addTextField { textField in
-            textField.placeholder = "Nombre"
-        }
-        
-        let guardarAccion = UIAlertAction(title: "Guardar", style: .default) { _ in
-            guard let nombre = alerta.textFields?.first?.text, !nombre.isEmpty else {
-                self.mostrarAlertaParaNombre(puntaje: puntaje)
-                return
-            }
-            
-            self.progreso.agregarPuntaje(
-                jugador: nombre,
-                puntaje: puntaje
+            let alerta = UIAlertController(
+                title: "¡Has roto un nuevo récord con un puntaje de: \(puntaje)!",
+                message: "Ingresa tu nombre",
+                preferredStyle: .alert
             )
             
+            alerta.addTextField { textField in
+                textField.placeholder = "Nombre"
+            }
+            
+            let guardarAccion = UIAlertAction(title: "Guardar", style: .default) { _ in
+                guard let nombre = alerta.textFields?.first?.text, !nombre.isEmpty else {
+                    self.mostrarAlertaParaNombre(puntaje: puntaje)
+                    return
+                }
+                
+                self.progreso.agregarPuntaje(
+                    jugador: nombre,
+                    puntaje: puntaje
+                )
+                
+            }
+            
+            alerta.addAction(guardarAccion)
+            present(alerta, animated: true)
         }
-        
-        alerta.addAction(guardarAccion)
-        present(alerta, animated: true)
-    }    
+
+        else{
+            
+            let alerta = UIAlertController(
+                title: "¡Gracias por jugar!",
+                message: "Tu puntaje fue de: \(puntaje)",
+                preferredStyle: .alert
+            )
+
+            let aceptarAction = UIAlertAction(title: "Aceptar", style: .default) { _ in
+                
+            }
+
+            alerta.addAction(aceptarAction)
+
+            self.present(alerta, animated: true, completion: nil)
+            
+        }
+    }
     
     @IBAction func MenuSalir(_ sender: Any) {
         

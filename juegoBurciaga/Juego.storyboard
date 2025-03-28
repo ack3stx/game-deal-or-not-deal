@@ -1263,7 +1263,7 @@
                                         <color key="textColor" red="0.92549019610000005" green="0.83529411760000005" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1,000,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZE-TE-ZIB">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZE-TE-ZIB">
                                         <rect key="frame" x="50" y="154" width="290" height="43"/>
                                         <color key="backgroundColor" red="0.18039215689999999" green="0.1450980392" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
@@ -1331,7 +1331,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="P9K-Bj-RFw"/>
+        <segue reference="Pvl-hV-rk6"/>
         <segue reference="BdU-RZ-7C3"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -40,6 +40,10 @@ class Datos: NSObject {
         return datos
     }
     
+    func obtenerMenorScore() -> Int? {
+        return puntajes.compactMap { $0["puntaje"] as? Int }.min()
+        }
+    
     func abrirArchivo() {
         let ruta = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/puntajes.plist"
         let urlArchivo = URL(fileURLWithPath: ruta)
@@ -63,11 +67,11 @@ class Datos: NSObject {
             print("El archivo no existe. Error: \(error)")
             
             let jugadoresFalsos = [
-                        ["jugador": "Dani", "puntaje": 1000],
-                        ["jugador": "Fer", "puntaje": 900],
-                        ["jugador": "Oswi", "puntaje": 800],
-                        ["jugador": "Omar", "puntaje": 700],
-                        ["jugador": "Tommy", "puntaje": 600]
+                        ["jugador": "Gaelillo", "puntaje": 5],
+                        ["jugador": "Cristianillo", "puntaje": 4],
+                        ["jugador": "Jaredsillo", "puntaje": 3],
+                        ["jugador": "Tomasillo", "puntaje": 2],
+                        ["jugador": "Oswisillo", "puntaje": 1]
                     ]
                     
             self.puntajes = jugadoresFalsos

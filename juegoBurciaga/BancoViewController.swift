@@ -17,7 +17,7 @@ class BancoViewController: UIViewController {
     @IBOutlet weak var lblCronometro: UILabel!
     
     
-    
+    var CantidadNoSeleccionada: Int = 0
     var CantidadTotal: Int = 0
     
     var cronometro = Timer()
@@ -27,7 +27,6 @@ class BancoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lblPremio.text = "$ " + String(calcularPremio())
         tiempo = progreso.tiempo
         
         cronometro = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
@@ -65,7 +64,12 @@ class BancoViewController: UIViewController {
         
 
 
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        lblPremio.text = "$ " + String(calcularPremio())
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -80,21 +84,19 @@ class BancoViewController: UIViewController {
             if !progreso.seleccionados.contains(progreso.valores[i]) {
                 // Si no está seleccionado, lo sumamos al total
                 CantidadTotal += progreso.valores[i]
+                CantidadNoSeleccionada = CantidadNoSeleccionada + 1
             }
         }
         
-        print(CantidadTotal)
+        CantidadTotal = CantidadTotal / CantidadNoSeleccionada
         
-        CantidadTotal = CantidadTotal / progreso.seleccionados.count
-        
-        print(CantidadTotal)
         
         switch progreso.ronda {
-            case 5: CantidadTotal = Int((Double(CantidadTotal) * 0.2).rounded())
-            case 8: CantidadTotal = Int((Double(CantidadTotal) * 0.4).rounded())
-            case 10: CantidadTotal = Int((Double(CantidadTotal) * 0.85).rounded())
-            case 13: CantidadTotal = Int((Double(CantidadTotal) * 1).rounded())
-            case 14: CantidadTotal = Int((Double(CantidadTotal) * 1.20).rounded())
+            case 5: CantidadTotal = Int((Double(CantidadTotal) * 0.1).rounded())
+            case 8: CantidadTotal = Int((Double(CantidadTotal) * 0.3).rounded())
+            case 10: CantidadTotal = Int((Double(CantidadTotal) * 0.6).rounded())
+        case 13: CantidadTotal = Int((Double(CantidadTotal) * 0.7).rounded())
+        case 14: CantidadTotal = Int((Double(CantidadTotal) * 0.8).rounded())
             default: break
             
         }
