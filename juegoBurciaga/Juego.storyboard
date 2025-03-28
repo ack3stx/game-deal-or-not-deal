@@ -990,7 +990,6 @@
                         <outletCollection property="lblValores" destination="lm7-wx-TWc" collectionClass="NSMutableArray" id="Rpq-Ec-rxe"/>
                         <segue destination="4Oa-MC-4sP" kind="presentation" identifier="regresarJuego" modalPresentationStyle="fullScreen" id="CM9-EZ-ftE"/>
                         <segue destination="bg4-CC-iXH" kind="presentation" identifier="banco" modalPresentationStyle="fullScreen" id="kev-kZ-iqe"/>
-                        <segue destination="ePO-3G-RpT" kind="presentation" identifier="resultadoFinal" modalPresentationStyle="fullScreen" id="ABg-iv-589"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1173,6 +1172,7 @@
                         <outlet property="lblPremio" destination="luO-8b-8Ny" id="iK7-Kk-p43"/>
                         <segue destination="eYH-cB-8aY" kind="presentation" identifier="premio" modalPresentationStyle="fullScreen" id="Pvl-hV-rk6"/>
                         <segue destination="4Oa-MC-4sP" kind="presentation" identifier="regresarJuego" modalPresentationStyle="fullScreen" id="BdU-RZ-7C3"/>
+                        <segue destination="ePO-3G-RpT" kind="presentation" identifier="resultadoFinal" modalPresentationStyle="fullScreen" id="v7W-Th-DH2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJj-m1-Xle" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1273,7 +1273,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="P9K-Bj-RFw"/>
-        <segue reference="CM9-EZ-ftE"/>
+        <segue reference="BdU-RZ-7C3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Titulo.png" width="900" height="900"/>

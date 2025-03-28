@@ -21,26 +21,26 @@ class FinalViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        maletinGuardado.setTitle(String(maletinGuardadoTag), for: .normal)
-        btnUltimoMaletin.setTitle(String(ultimoMaletinTag), for: .normal)
-        maletinGuardado.tag = valorMaletinGuardado
-        btnUltimoMaletin.tag = valorUltimoMaletin
+//        maletinGuardado.setTitle(String(maletinGuardadoTag), for: .normal)
+//        btnUltimoMaletin.setTitle(String(ultimoMaletinTag), for: .normal)
+//        maletinGuardado.tag = valorMaletinGuardado
+//        btnUltimoMaletin.tag = valorUltimoMaletin
     }
     
     @IBAction func abrirMaletin(_ sender: UIButton) {
-        maletinGuardado.isUserInteractionEnabled = false
-        btnUltimoMaletin.isUserInteractionEnabled = false
-        UIView.animate(withDuration: 2) {
-            sender.frame.origin.x = self.mostrarMaletin.frame.origin.x + (self.mostrarMaletin.frame.width / 2) - (sender.frame.width / 2)
-            sender.frame.origin.y = self.mostrarMaletin.frame.origin.y + (self.mostrarMaletin.frame.height / 2) - (sender.frame.height / 2)
-            
-            self.progreso.valorGanado = sender.tag
-            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
-                self.performSegue(withIdentifier: "premio", sender: nil)
-            }
-            
-        }
-        
+//        maletinGuardado.isUserInteractionEnabled = false
+//        btnUltimoMaletin.isUserInteractionEnabled = false
+//        UIView.animate(withDuration: 2) {
+//            sender.frame.origin.x = self.mostrarMaletin.frame.origin.x + (self.mostrarMaletin.frame.width / 2) - (sender.frame.width / 2)
+//            sender.frame.origin.y = self.mostrarMaletin.frame.origin.y + (self.mostrarMaletin.frame.height / 2) - (sender.frame.height / 2)
+//            
+//            self.progreso.valorGanado = sender.tag
+//            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
+//                self.performSegue(withIdentifier: "premio", sender: nil)
+//            }
+//            
+//        }
+//        
     }
     
     /*

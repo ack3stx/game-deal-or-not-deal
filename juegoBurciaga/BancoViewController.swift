@@ -45,9 +45,7 @@ class BancoViewController: UIViewController {
 
         }
         
-        if (progreso.ronda == 15){
-            self.performSegue(withIdentifier: "resultadoFinal", sender: nil)
-        }
+        
 
         return CantidadTotal
         
@@ -63,7 +61,12 @@ class BancoViewController: UIViewController {
     
     
     @IBAction func NoDeal() {
-        self.performSegue(withIdentifier: "regresarJuego", sender: nil)
+        if (progreso.ronda == 15){
+            self.performSegue(withIdentifier: "resultadoFinal", sender: nil)
+        }
+        else {
+            self.performSegue(withIdentifier: "regresarJuego", sender: nil)
+        }
     }
     
     /*
