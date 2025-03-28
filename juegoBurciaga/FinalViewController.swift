@@ -24,7 +24,7 @@ class FinalViewController: UIViewController {
     var reproductor = AVAudioPlayer()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        progreso.reproductor.stop()
         self.playSound("ultimosDosMaletines")
         
         tiempo = progreso.tiempo

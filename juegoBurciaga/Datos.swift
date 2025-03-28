@@ -19,6 +19,7 @@ class Datos: NSObject {
     var tiempo: Int
     var puntajes: [[String: Any]] = [[:]]
     var reproductor: AVAudioPlayer
+    var nombreMusica: String
 
     static var datos: Datos!
     
@@ -32,6 +33,7 @@ class Datos: NSObject {
         resultadoFinal = []
         tiempo = 0
         reproductor = AVAudioPlayer()
+        nombreMusica = ""
     }
     
     static func sharedDatos() -> Datos {
