@@ -6,24 +6,39 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CreditosViewController: UIViewController {
+    var cancionFondo = ["GTA"]
+    var reproductorMuscia = AVAudioPlayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        reproducirCancionFondo()
+    }
+    //METODO PARA REPRODUCIR LA MUSICA
+    func reproducirCancionFondo() {
+        guard let urlCancionFondo = Bundle.main.url(forResource: cancionFondo[0], withExtension: "mp3") else { return }
+        do {
+            reproductorMuscia = try AVAudioPlayer(contentsOf: urlCancionFondo)
+            reproductorMuscia.numberOfLoops = -1
+            reproductorMuscia.play()
+        }
+        catch{
+            print("error al reproducir la musica")
+        }
+    }
+    // DETENER LA MUSICA EN CASO LLEGUE A FALLAR Y NO SE DETENGA
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        reproductorMuscia.stop()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //DETENR LA MUSICA EN LOS SEWEY
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        reproductorMuscia.stop()
     }
-    */
 
+   
 }
