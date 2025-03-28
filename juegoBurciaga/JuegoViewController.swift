@@ -32,7 +32,8 @@ class JuegoViewController: UIViewController {
         ronda = progreso.ronda
         maletinGuardadoTag = progreso.maletinGuardadoTag
         tiempo = progreso.tiempo
-        
+        progreso.reproductor.stop()
+//        reproductor.stop()
         // Do any additional setup after loading the view.
         
         if (ronda < 8) {
@@ -79,6 +80,8 @@ class JuegoViewController: UIViewController {
         if valores.count == 0 {
             valores = numeros.shuffled()
         }
+        
+        print(valores)
         
         if maletinGuardadoTag != -1 {
             for boton in btnMaletines {
@@ -155,7 +158,7 @@ class JuegoViewController: UIViewController {
             let vc = segue.destination as! ResultadoViewController
             vc.numero = self.numero
         }
-        reproductor.stop()
+//        reproductor.stop()
         guardarProgreso()
     }
     func guardarProgreso() {
@@ -174,6 +177,7 @@ class JuegoViewController: UIViewController {
             reproductor = try AVAudioPlayer(contentsOf: soundURL)
             reproductor.numberOfLoops = -1
             reproductor.play()
+            progreso.reproductor = reproductor
         } catch {
             print("Error al reproducir sonido: \(error.localizedDescription)")
         }

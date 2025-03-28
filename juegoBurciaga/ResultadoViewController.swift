@@ -39,9 +39,7 @@ class ResultadoViewController: UIViewController {
                 }
             }
         }
-        if progreso.ronda == 2 {
-            playSound("jaja")
-        }
+        
         cronometro = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
             self.tiempo += 1
             
@@ -75,7 +73,12 @@ class ResultadoViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
-            self.playSound("abrirMaletin")
+            if self.progreso.ronda == 2 && self.valorSeleccionado! == 1000000 {
+                self.playSound("jaja")
+            }
+            else {
+                self.playSound("abrirMaletin")
+            }
             UIView.animate(withDuration: 1) {
                 self.btnMaletin.alpha = 0
             }

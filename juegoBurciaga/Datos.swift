@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class Datos: NSObject {
     var valores: [Int]
@@ -17,6 +18,7 @@ class Datos: NSObject {
     var resultadoFinal: [Int]
     var tiempo: Int
     var puntajes: [[String: Any]] = [[:]]
+    var reproductor: AVAudioPlayer
 
     static var datos: Datos!
     
@@ -29,6 +31,7 @@ class Datos: NSObject {
         valorGanado = 0
         resultadoFinal = []
         tiempo = 0
+        reproductor = AVAudioPlayer()
     }
     
     static func sharedDatos() -> Datos {
