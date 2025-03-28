@@ -67,11 +67,11 @@ class Datos: NSObject {
             print("El archivo no existe. Error: \(error)")
             
             let jugadoresFalsos = [
-                        ["jugador": "Gaelillo", "puntaje": 5],
-                        ["jugador": "Cristianillo", "puntaje": 4],
-                        ["jugador": "Jaredsillo", "puntaje": 3],
-                        ["jugador": "Tomasillo", "puntaje": 2],
-                        ["jugador": "Oswisillo", "puntaje": 1]
+                        ["jugador": "Gaelillo", "puntaje": 50000],
+                        ["jugador": "Cristianillo", "puntaje": 40000],
+                        ["jugador": "Jaredsillo", "puntaje": 25000],
+                        ["jugador": "Tomasillo", "puntaje": 10000],
+                        ["jugador": "Oswisillo", "puntaje": 1000]
                     ]
                     
             self.puntajes = jugadoresFalsos
