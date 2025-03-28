@@ -23,12 +23,11 @@ class EndGameViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        lblPremio.text = "$ " + String(progreso.valorGanado)
+        lblPremio.text = "$ " + String(progreso.valorGanado.formatted(.number))
         mostrarAlertaParaNombre(puntaje: progreso.valorGanado)
     }
     
     func mostrarAlertaParaNombre(puntaje: Int) {
-        // Verificamos si hay un menor score y si el puntaje actual es mayor
         if let menorScore = progreso.obtenerMenorScore(), puntaje > menorScore || progreso.puntajes.count < 5 {
             
             let alerta = UIAlertController(
