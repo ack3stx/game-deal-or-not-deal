@@ -27,7 +27,8 @@ class EndGameViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         lblPremio.text = "$ " + String(progreso.valorGanado.formatted(.number))
-        mostrarAlertaParaNombre(puntaje: progreso.valorGanado)
+        var puntajeTotal = progreso.tiempo + progreso.valorGanado
+        mostrarAlertaParaNombre(puntaje: puntajeTotal)
         
     }
     
