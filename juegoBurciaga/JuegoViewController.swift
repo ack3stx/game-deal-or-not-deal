@@ -32,18 +32,31 @@ class JuegoViewController: UIViewController {
         ronda = progreso.ronda
         maletinGuardadoTag = progreso.maletinGuardadoTag
         tiempo = progreso.tiempo
-        progreso.reproductor.stop()
+        
+        
 //        reproductor.stop()
         // Do any additional setup after loading the view.
         
         if (ronda < 8) {
-            self.playSound("juegoPrimerasRondas")
+            if progreso.nombreMusica != "juegoPrimerasRondas" {
+                self.playSound("juegoPrimerasRondas")
+            }
         }
         else if (ronda < 12) {
-            self.playSound("juegoRondasMedias")
+            if progreso.nombreMusica == "juegoPrimerasRondas" {
+                progreso.reproductor.stop()
+            }
+            if progreso.nombreMusica != "juegoRondasMedias" {
+                self.playSound("juegoRondasMedias")
+            }
         }
         else {
-            self.playSound("juegoRondasFinales")
+            if progreso.nombreMusica == "juegoRondasMedias" {
+                progreso.reproductor.stop()
+            }
+            if progreso.nombreMusica != "juegoRondasFinales" {
+                self.playSound("juegoRondasFinales")
+            }
         }
         
         cronometro = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
@@ -178,6 +191,7 @@ class JuegoViewController: UIViewController {
             reproductor.numberOfLoops = -1
             reproductor.play()
             progreso.reproductor = reproductor
+            progreso.nombreMusica = musica
         } catch {
             print("Error al reproducir sonido: \(error.localizedDescription)")
         }
