@@ -7,16 +7,19 @@
 
 import UIKit
 
+import AVFoundation
+
 class EndGameViewController: UIViewController {
 
     
     var progreso = Datos.sharedDatos()
 
     @IBOutlet weak var lblPremio: UILabel!
-    
+    var reproductor = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        playSound("1,000,000")
         
         // Do any additional setup after loading the view.
     }
@@ -25,6 +28,11 @@ class EndGameViewController: UIViewController {
         super.viewDidAppear(animated)
         lblPremio.text = "$ " + String(progreso.valorGanado.formatted(.number))
         mostrarAlertaParaNombre(puntaje: progreso.valorGanado)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        reproductor.stop()
     }
     
     func mostrarAlertaParaNombre(puntaje: Int) {
@@ -75,6 +83,21 @@ class EndGameViewController: UIViewController {
         juegovc.modalPresentationStyle = .fullScreen
         present(juegovc, animated: true)
     }
+    
+    
+    func playSound(_ musica: String) {
+        guard let soundURL = Bundle.main.url(forResource: musica, withExtension: "mp3") else { return }
+
+        do {
+            reproductor = try AVAudioPlayer(contentsOf: soundURL)
+            reproductor.numberOfLoops = -1
+            reproductor.play()
+        } catch {
+            print("Error al reproducir sonido: \(error.localizedDescription)")
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 
