@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ResultadoViewController: UIViewController {
 
@@ -19,6 +20,8 @@ class ResultadoViewController: UIViewController {
     var cronometro = Timer()
     var tiempo = 0
     var progreso = Datos.sharedDatos()
+    let canciones = ["abrirMaletin"]
+    var reproductor = AVAudioPlayer()
     override func viewDidLoad() {
         super.viewDidLoad()
         tiempo = progreso.tiempo
@@ -70,11 +73,12 @@ class ResultadoViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
-            UIView.animate(withDuration: 2) {
+            self.playSound("abrirMaletin")
+            UIView.animate(withDuration: 1) {
                 self.btnMaletin.alpha = 0
             }
             Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
-                UIView.animate(withDuration: 2) {
+                UIView.animate(withDuration: 1) {
                     for views in self.lblValores {
                         if views.tag == self.valorSeleccionado {
                             //views.alpha = 0.4
@@ -104,7 +108,7 @@ class ResultadoViewController: UIViewController {
         shake.values = [-10, 10, -8, 8, -5, 5, 0]
         label.layer.add(shake, forKey: "shake")
         
-        UIView.animate(withDuration: 0.5, delay: 0.5, options: [], animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.5, options: [], animations: {
             label.alpha = 0.4
         })
     }
@@ -112,6 +116,18 @@ class ResultadoViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         progreso.tiempo = tiempo
     }
+    
+    func playSound(_ musica: String) {
+        guard let soundURL = Bundle.main.url(forResource: musica, withExtension: "mp3") else { return }
+
+        do {
+            reproductor = try AVAudioPlayer(contentsOf: soundURL)
+            reproductor.play()
+        } catch {
+            print("Error al reproducir sonido: \(error.localizedDescription)")
+        }
+    }
+
 
     /*
     // MARK: - Navigation
