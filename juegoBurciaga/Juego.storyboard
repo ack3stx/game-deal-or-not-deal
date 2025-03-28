@@ -347,7 +347,6 @@
                         <outletCollection property="btnMaletines" destination="TSg-Dw-TQm" collectionClass="NSMutableArray" id="1HX-ww-UZL"/>
                         <outletCollection property="btnMaletines" destination="KE8-w8-e7j" collectionClass="NSMutableArray" id="mN3-VW-yxT"/>
                         <segue destination="Y6W-OH-hqX" kind="presentation" identifier="abrirMaletin" modalPresentationStyle="fullScreen" id="sLg-jR-dzP"/>
-                        <segue destination="ePO-3G-RpT" kind="presentation" identifier="resultadoFinal" modalPresentationStyle="fullScreen" id="ONu-VL-bOS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0NK-Is-08N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -991,6 +990,7 @@
                         <outletCollection property="lblValores" destination="lm7-wx-TWc" collectionClass="NSMutableArray" id="Rpq-Ec-rxe"/>
                         <segue destination="4Oa-MC-4sP" kind="presentation" identifier="regresarJuego" modalPresentationStyle="fullScreen" id="CM9-EZ-ftE"/>
                         <segue destination="bg4-CC-iXH" kind="presentation" identifier="banco" modalPresentationStyle="fullScreen" id="kev-kZ-iqe"/>
+                        <segue destination="ePO-3G-RpT" kind="presentation" identifier="resultadoFinal" modalPresentationStyle="fullScreen" id="ABg-iv-589"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
