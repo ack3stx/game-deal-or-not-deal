@@ -34,19 +34,22 @@ class BancoViewController: UIViewController {
             }
         }
         
+        print(CantidadTotal)
+        
         CantidadTotal = CantidadTotal / progreso.seleccionados.count
         
-        if (progreso.ronda == 5){
+        print(CantidadTotal)
+        
+        switch progreso.ronda {
+            case 5: CantidadTotal = Int((Double(CantidadTotal) * 0.2).rounded())
+            case 8: CantidadTotal = Int((Double(CantidadTotal) * 0.4).rounded())
+            case 10: CantidadTotal = Int((Double(CantidadTotal) * 0.85).rounded())
+            case 13: CantidadTotal = Int((Double(CantidadTotal) * 1).rounded())
+            case 14: CantidadTotal = Int((Double(CantidadTotal) * 1.20).rounded())
+            default: break
             
-            CantidadTotal = 1000
-            //CantidadTotal = Int(resultado.rounded())
-            
-            print("hola")
-
         }
         
-        
-
         return CantidadTotal
         
     }
