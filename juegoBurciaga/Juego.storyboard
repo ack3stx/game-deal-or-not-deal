@@ -365,7 +365,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0NK-Is-08N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161.53846153846152" y="646.91943127962077"/>
+            <point key="canvasLocation" x="160" y="646.20853080568713"/>
         </scene>
         <!--Resultado View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -1070,6 +1070,17 @@
                                     <constraint firstAttribute="width" constant="60" id="tID-vx-C56"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HS2-hv-8D4">
+                                <rect key="frame" x="288" y="15" width="87" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="87" id="XhI-eJ-18Y"/>
+                                    <constraint firstAttribute="height" constant="21" id="skq-th-d35"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nt3-bq-bZS"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1080,8 +1091,10 @@
                             <constraint firstItem="vMa-OQ-YEj" firstAttribute="centerY" secondItem="7lZ-mn-0MZ" secondAttribute="centerY" multiplier="1.4" id="FZZ-3w-w0I"/>
                             <constraint firstItem="nt3-bq-bZS" firstAttribute="bottom" secondItem="r1I-Ef-zR6" secondAttribute="bottom" id="Guz-1a-wlN"/>
                             <constraint firstItem="r1I-Ef-zR6" firstAttribute="top" secondItem="nt3-bq-bZS" secondAttribute="top" id="IyY-zg-LUE"/>
+                            <constraint firstItem="nt3-bq-bZS" firstAttribute="trailing" secondItem="HS2-hv-8D4" secondAttribute="trailing" constant="15" id="O40-Ew-32G"/>
                             <constraint firstItem="xL9-EO-PEm" firstAttribute="centerY" secondItem="7lZ-mn-0MZ" secondAttribute="centerY" id="Pmz-O9-uuh"/>
                             <constraint firstItem="vMa-OQ-YEj" firstAttribute="centerX" secondItem="7lZ-mn-0MZ" secondAttribute="centerX" id="UnE-hz-1rw"/>
+                            <constraint firstItem="HS2-hv-8D4" firstAttribute="top" secondItem="nt3-bq-bZS" secondAttribute="top" constant="15" id="dwg-HN-Hve"/>
                             <constraint firstItem="xL9-EO-PEm" firstAttribute="width" secondItem="C6x-qu-jhD" secondAttribute="width" id="hqH-cg-tbl"/>
                             <constraint firstItem="r1I-Ef-zR6" firstAttribute="leading" secondItem="nt3-bq-bZS" secondAttribute="leading" id="iT1-3d-dzC"/>
                             <constraint firstItem="nt3-bq-bZS" firstAttribute="trailing" secondItem="r1I-Ef-zR6" secondAttribute="trailing" id="sP1-DH-GNn"/>
@@ -1090,6 +1103,7 @@
                     </view>
                     <connections>
                         <outlet property="btnUltimoMaletin" destination="xL9-EO-PEm" id="IG2-93-ymC"/>
+                        <outlet property="lblTim" destination="HS2-hv-8D4" id="CoH-7c-rvh"/>
                         <outlet property="maletinGuardado" destination="C6x-qu-jhD" id="1tr-Jh-1sN"/>
                         <outlet property="mostrarMaletin" destination="vMa-OQ-YEj" id="08l-d9-LaU"/>
                         <segue destination="eYH-cB-8aY" kind="presentation" identifier="premio" modalPresentationStyle="fullScreen" id="P9K-Bj-RFw"/>
@@ -1317,7 +1331,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Pvl-hV-rk6"/>
+        <segue reference="P9K-Bj-RFw"/>
         <segue reference="BdU-RZ-7C3"/>
     </inferredMetricsTieBreakers>
     <resources>
