@@ -80,10 +80,6 @@ class JuegoViewController: UIViewController {
             }
             ronda += 1
         }
-        else if ronda == 15 {
-            numero = sender.tag
-            self.performSegue(withIdentifier: "resultadoFinal", sender: nil)
-        }
         else {
             
             numero = sender.tag
@@ -93,7 +89,15 @@ class JuegoViewController: UIViewController {
             seleccionadosTag.append(numero)
             
             ronda += 1
-            print(ronda)
+            
+            if ronda == 15 {
+                for boton in btnMaletines {
+                    if boton.isEnabled == true && boton.tag != maletinGuardadoTag {
+                        progreso.resultadoFinal = [self.maletinGuardadoTag, self.valores[self.maletinGuardadoTag - 1], boton.tag, self.valores[boton.tag - 1]]
+                    }
+                }
+                
+            }
             self.performSegue(withIdentifier: "abrirMaletin", sender: nil)
         }
     }
@@ -102,13 +106,6 @@ class JuegoViewController: UIViewController {
         if segue.identifier == "abrirMaletin" {
             let vc = segue.destination as! ResultadoViewController
             vc.numero = self.numero
-        }
-        else if segue.identifier == "resultadoFinal" {
-            let vc = segue.destination as! FinalViewController
-            vc.maletinGuardadoTag = self.maletinGuardadoTag
-            vc.valorMaletinGuardado = self.valores[self.maletinGuardadoTag - 1]
-            vc.ultimoMaletinTag = self.numero
-            vc.valorUltimoMaletin = self.valores[self.numero - 1]
         }
         
         guardarProgreso()
@@ -120,5 +117,4 @@ class JuegoViewController: UIViewController {
         progreso.ronda = ronda
         progreso.maletinGuardadoTag = maletinGuardadoTag
     }
-
 }
