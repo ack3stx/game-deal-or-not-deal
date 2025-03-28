@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class FinalViewController: UIViewController {
 
@@ -20,8 +21,11 @@ class FinalViewController: UIViewController {
     var cronometro = Timer()
     var tiempo = 0
     var progreso = Datos.sharedDatos()
+    var reproductor = AVAudioPlayer()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.playSound("ultimosDosMaletines")
         
         tiempo = progreso.tiempo
 
@@ -78,5 +82,18 @@ class FinalViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         progreso.tiempo = tiempo
+        reproductor.stop()
+    }
+    
+    func playSound(_ musica: String) {
+        guard let soundURL = Bundle.main.url(forResource: musica, withExtension: "mp3") else { return }
+
+        do {
+            reproductor = try AVAudioPlayer(contentsOf: soundURL)
+            reproductor.numberOfLoops = -1
+            reproductor.play()
+        } catch {
+            print("Error al reproducir sonido: \(error.localizedDescription)")
+        }
     }
 }
