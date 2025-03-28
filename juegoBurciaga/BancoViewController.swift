@@ -11,18 +11,67 @@ class BancoViewController: UIViewController {
 
     
     var progreso = Datos.sharedDatos()
+    
     @IBOutlet weak var lblPremio: UILabel!
     
+    @IBOutlet weak var lblCronometro: UILabel!
+    
+    
+    
     var CantidadTotal: Int = 0
+    
+    var cronometro = Timer()
+    var tiempo = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         lblPremio.text = "$ " + String(calcularPremio())
+        tiempo = progreso.tiempo
+        
+        cronometro = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
+            self.tiempo += 1
+            
+            var segundos = self.tiempo
+            var minutos: Int = 0
+            var horas: Int = 0
+            
+            if segundos >= 60 {
+                minutos = segundos / 60
+                segundos %= 60
+            }
+            
+            
+            if minutos >= 60 {
+                horas = minutos / 60
+                minutos %= 60
+            }
+            
+            var horasString: String = ""
+            if horas > 0 {
+                horasString = String(format: "%02d", horas) + ":"
+            }
+            var minutosString: String = ""
+            if minutos > 0 {
+                minutosString = String(format: "%02d", minutos) + ":"
+            }
+            let segundosString: String = String(format: "%02d", segundos)
+            
+            self.lblCronometro.text = "\(horasString)\(minutosString)\(segundosString)"
+            
+            
+        })
+        
+
 
         // Do any additional setup after loading the view.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        progreso.tiempo = tiempo
+    }
+    
     
     func calcularPremio() -> Int {
         
