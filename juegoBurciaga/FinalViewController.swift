@@ -69,12 +69,14 @@ class FinalViewController: UIViewController {
     @IBAction func abrirMaletin(_ sender: UIButton) {
         maletinGuardado.isUserInteractionEnabled = false
         btnUltimoMaletin.isUserInteractionEnabled = false
-        UIView.animate(withDuration: 2) {
-            sender.frame.origin.x = self.mostrarMaletin.frame.origin.x + (self.mostrarMaletin.frame.width / 2) - (sender.frame.width / 2)
-            sender.frame.origin.y = self.mostrarMaletin.frame.origin.y + (self.mostrarMaletin.frame.height / 2) - (sender.frame.height / 2)
             
+        let destinoX = mostrarMaletin.frame.midX - sender.frame.width / 2
+        let destinoY = mostrarMaletin.frame.midY - sender.frame.height / 2
+            
+        UIView.animate(withDuration: 2, animations: {
+            sender.transform = CGAffineTransform(translationX: destinoX - sender.frame.origin.x, y: destinoY - sender.frame.origin.y)}) { _ in
             self.progreso.valorGanado = sender.tag
-            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
                 self.performSegue(withIdentifier: "premio", sender: nil)
             }
         }
