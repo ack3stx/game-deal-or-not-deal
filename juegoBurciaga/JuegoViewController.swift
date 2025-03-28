@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class JuegoViewController: UIViewController {
 
@@ -22,6 +23,7 @@ class JuegoViewController: UIViewController {
     var progreso = Datos.sharedDatos()
     @IBOutlet weak var maletaGuardada: UIView!
     @IBOutlet var btnMaletines: [UIButton]!
+    var reproductor = AVAudioPlayer()
     override func viewDidLoad() {
         super.viewDidLoad()
         valores = progreso.valores
@@ -32,6 +34,16 @@ class JuegoViewController: UIViewController {
         tiempo = progreso.tiempo
         
         // Do any additional setup after loading the view.
+        
+        if (ronda < 8) {
+            self.playSound("juegoPrimerasRondas")
+        }
+        else if (ronda < 12) {
+            self.playSound("juegoRondasMedias")
+        }
+        else {
+            self.playSound("juegoRondasFinales")
+        }
         
         cronometro = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
             self.tiempo += 1
@@ -143,7 +155,7 @@ class JuegoViewController: UIViewController {
             let vc = segue.destination as! ResultadoViewController
             vc.numero = self.numero
         }
-        
+        reproductor.stop()
         guardarProgreso()
     }
     func guardarProgreso() {
@@ -153,5 +165,17 @@ class JuegoViewController: UIViewController {
         progreso.ronda = ronda
         progreso.maletinGuardadoTag = maletinGuardadoTag
         progreso.tiempo = tiempo
+    }
+    
+    func playSound(_ musica: String) {
+        guard let soundURL = Bundle.main.url(forResource: musica, withExtension: "mp3") else { return }
+
+        do {
+            reproductor = try AVAudioPlayer(contentsOf: soundURL)
+            reproductor.numberOfLoops = -1
+            reproductor.play()
+        } catch {
+            print("Error al reproducir sonido: \(error.localizedDescription)")
+        }
     }
 }

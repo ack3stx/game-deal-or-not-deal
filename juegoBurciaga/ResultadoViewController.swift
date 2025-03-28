@@ -39,7 +39,9 @@ class ResultadoViewController: UIViewController {
                 }
             }
         }
-        
+        if progreso.ronda == 2 {
+            playSound("jaja")
+        }
         cronometro = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
             self.tiempo += 1
             
