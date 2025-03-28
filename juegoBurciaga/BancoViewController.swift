@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class BancoViewController: UIViewController {
 
@@ -22,11 +23,12 @@ class BancoViewController: UIViewController {
     
     var cronometro = Timer()
     var tiempo = 0
+    var reproductor = AVAudioPlayer()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        playSound("banco")
         tiempo = progreso.tiempo
         
         cronometro = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
@@ -68,12 +70,13 @@ class BancoViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        lblPremio.text = "$ " + String(calcularPremio())
+        lblPremio.text = "$ " + String(calcularPremio().formatted(.number))
 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         progreso.tiempo = tiempo
+        reproductor.stop()
     }
     
     
@@ -120,6 +123,18 @@ class BancoViewController: UIViewController {
         }
         else {
             self.performSegue(withIdentifier: "regresarJuego", sender: nil)
+        }
+    }
+    
+    func playSound(_ musica: String) {
+        guard let soundURL = Bundle.main.url(forResource: musica, withExtension: "mp3") else { return }
+
+        do {
+            reproductor = try AVAudioPlayer(contentsOf: soundURL)
+            reproductor.numberOfLoops = -1
+            reproductor.play()
+        } catch {
+            print("Error al reproducir sonido: \(error.localizedDescription)")
         }
     }
     
