@@ -38,9 +38,15 @@ class BancoViewController: UIViewController {
         
         if (progreso.ronda == 5){
             
-            let resultado = Double(CantidadTotal) * 0.6
-            CantidadTotal = Int(resultado.rounded())
+            CantidadTotal = 1000
+            //CantidadTotal = Int(resultado.rounded())
+            
+            print("hola")
 
+        }
+        
+        if (progreso.ronda == 15){
+            self.performSegue(withIdentifier: "resultadoFinal", sender: nil)
         }
 
         return CantidadTotal
