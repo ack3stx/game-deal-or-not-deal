@@ -15,6 +15,7 @@ class Datos: NSObject {
     var maletinGuardadoTag: Int
     var valorGanado: Int
     var resultadoFinal: [Int] = []
+    var tiempo: Int = 0
     static var datos: Datos!
     
     override init() {
