@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ResultadoViewController: UIViewController {
 
@@ -19,6 +20,8 @@ class ResultadoViewController: UIViewController {
     var cronometro = Timer()
     var tiempo = 0
     var progreso = Datos.sharedDatos()
+    let canciones = ["abrirMaletin"]
+    var reproductor = AVAudioPlayer()
     override func viewDidLoad() {
         super.viewDidLoad()
         tiempo = progreso.tiempo
@@ -112,6 +115,18 @@ class ResultadoViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         progreso.tiempo = tiempo
     }
+    
+    func playSound() {
+        guard let soundURL = Bundle.main.url(forResource: "sonido", withExtension: "mp3") else { return }
+
+        do {
+            reproductor = try AVAudioPlayer(contentsOf: soundURL)
+            reproductor.play()
+        } catch {
+            print("Error al reproducir sonido: \(error.localizedDescription)")
+        }
+    }
+
 
     /*
     // MARK: - Navigation
