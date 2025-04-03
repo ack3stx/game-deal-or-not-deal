@@ -36,6 +36,19 @@ class Datos: NSObject {
         nombreMusica = ""
     }
     
+    func borrarProgreso() {
+        valores = []
+        seleccionados = []
+        seleccionadosTag = []
+        ronda = 0
+        maletinGuardadoTag = -1
+        valorGanado = 0
+        resultadoFinal = []
+        tiempo = 0
+        reproductor = AVAudioPlayer()
+        nombreMusica = ""
+    }
+    
     static func sharedDatos() -> Datos {
         if datos == nil {
             datos = Datos.init()

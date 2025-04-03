@@ -15,6 +15,7 @@ class BancoViewController: UIViewController {
     
     @IBOutlet weak var lblPremio: UILabel!
     
+    @IBOutlet weak var lblCuentaRegresiva: UILabel!
     @IBOutlet weak var lblCronometro: UILabel!
     
     
@@ -23,16 +24,34 @@ class BancoViewController: UIViewController {
     
     var cronometro = Timer()
     var tiempo = 0
+    var cuentaRegresiva = 0
     var reproductor = AVAudioPlayer()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        playSound("banco")
         tiempo = progreso.tiempo
         
         cronometro = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
+            self.cuentaRegresiva += 1
+            if self.cuentaRegresiva > 3 && self.cuentaRegresiva < 7 {
+                self.lblCuentaRegresiva.textColor = .orange
+            }
+            else if self.cuentaRegresiva >= 7 {
+                self.lblCuentaRegresiva.textColor = .red
+            }
+            self.lblCuentaRegresiva.text = String(10 - self.cuentaRegresiva)
+            
             self.tiempo += 1
+            
+            if self.cuentaRegresiva == 10 {
+                if (self.progreso.ronda == 15){
+                    self.performSegue(withIdentifier: "resultadoFinal", sender: nil)
+                }
+                else {
+                    self.performSegue(withIdentifier: "regresarJuego", sender: nil)
+                }
+            }
             
             var segundos = self.tiempo
             var minutos: Int = 0

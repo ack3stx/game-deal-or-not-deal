@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 
 class MenuViewController: UIViewController {
-    
+    var progreso = Datos.sharedDatos()
     @IBOutlet weak var btnJugar: UIButton!
     var cancionInicio = ["Inicio"]
     @IBOutlet weak var btnMarcador: UIButton!
@@ -17,6 +17,7 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var btnCreditos: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        progreso.reproductor.stop()
         reproducirMusica()
         btnJugar.layer.cornerRadius = 10
         btnCreditos.layer.cornerRadius = 10
@@ -24,7 +25,7 @@ class MenuViewController: UIViewController {
         agregarBrillo(to: btnJugar)
         agregarBrillo(to: btnMarcador)
         agregarBrillo(to: btnCreditos)
-        Datos.init()
+        progreso.borrarProgreso()
         // Do any additional setup after loading the view.
     }
     func agregarBrillo(to button: UIButton) {
@@ -33,6 +34,7 @@ class MenuViewController: UIViewController {
             button.layer.shadowRadius = 8
             button.layer.shadowOpacity = 1.0
         }
+   
 
     @IBAction func empezarJuego(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Juego", bundle: nil)

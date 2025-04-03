@@ -10,6 +10,7 @@ import AVFoundation
 
 class JuegoViewController: UIViewController {
 
+    @IBOutlet weak var lblInstrucciones: UILabel!
     let numeros: [Int] = [400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000]
     var valores: [Int] = []
     var numero: Int = 0
@@ -36,6 +37,13 @@ class JuegoViewController: UIViewController {
         
 //        reproductor.stop()
         // Do any additional setup after loading the view.
+        
+        if (ronda == 0) {
+            lblInstrucciones.text = "Selecciona el maletin a guardar"
+        }
+        else {
+            lblInstrucciones.text = "Selecciona el maletin a descartar"
+        }
         
         if (ronda < 8) {
             if progreso.nombreMusica != "juegoPrimerasRondas" {
@@ -136,6 +144,7 @@ class JuegoViewController: UIViewController {
     
     @IBAction func seleccionarMaletin(_ sender: UIButton) {
         if ronda == 0 {
+            lblInstrucciones.text = "Selecciona el maletin a descartar"
             maletinGuardadoTag = sender.tag
             sender.isUserInteractionEnabled = false
             UIView.animate(withDuration: 2) {

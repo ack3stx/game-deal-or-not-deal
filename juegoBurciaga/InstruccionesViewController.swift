@@ -38,11 +38,12 @@ class InstruccionesViewController: UIViewController {
                 let instruccionesLabel = UILabel()
                 instruccionesLabel.numberOfLines = 0
                 instruccionesLabel.textColor = .white
+                
                 instruccionesLabel.text = instruccionesTexto
-                instruccionesLabel.frame = CGRect(x: 20, y: 20, width: 300, height: 0)
+        instruccionesLabel.frame = CGRect(x: 20, y: 20, width: 0.95, height: 0)
                 
                 // USAR EL FRAME PARA CALCULAR EL TAMAÑO DEL LABEL
-                let maxSize = CGSize(width: scrInstrucciones.frame.size.width - 40, height: CGFloat.greatestFiniteMagnitude)
+                let maxSize = CGSize(width: scrInstrucciones.frame.size.width, height: CGFloat.greatestFiniteMagnitude)
                 let labelSize = instruccionesLabel.sizeThatFits(maxSize)
                 
                 // AJUSTAR EL TAMAÑO DEL LABEL Y AGREGARLO AL SCORLL
@@ -72,5 +73,6 @@ class InstruccionesViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         reproductorMusica.stop()
     }
+    
 
 }

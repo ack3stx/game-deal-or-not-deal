@@ -27,7 +27,7 @@ class EndGameViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         lblPremio.text = "$ " + String(progreso.valorGanado.formatted(.number))
-        var puntajeTotal = progreso.tiempo + progreso.valorGanado
+        let puntajeTotal = progreso.tiempo + progreso.valorGanado
         mostrarAlertaParaNombre(puntaje: puntajeTotal)
         
     }
@@ -93,6 +93,7 @@ class EndGameViewController: UIViewController {
             reproductor = try AVAudioPlayer(contentsOf: soundURL)
             reproductor.numberOfLoops = -1
             reproductor.play()
+            progreso.reproductor = reproductor
         } catch {
             print("Error al reproducir sonido: \(error.localizedDescription)")
         }

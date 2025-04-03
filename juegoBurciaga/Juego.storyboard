@@ -321,6 +321,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecciona el maletin a descartar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="cJM-hT-D4W">
+                                <rect key="frame" x="40" y="138.66666666666666" width="310" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="C2w-5c-DY6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V4U-93-m2N"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -330,6 +340,8 @@
                             <constraint firstItem="3c0-kY-olR" firstAttribute="height" secondItem="2rR-Xq-30h" secondAttribute="height" multiplier="0.2" id="7Wo-MX-86G"/>
                             <constraint firstItem="V4U-93-m2N" firstAttribute="trailing" secondItem="ZXz-ET-tf2" secondAttribute="trailing" constant="15" id="8FA-ey-u4e"/>
                             <constraint firstItem="3c0-kY-olR" firstAttribute="leading" secondItem="V4U-93-m2N" secondAttribute="leading" id="DgL-5x-u2n"/>
+                            <constraint firstItem="nqm-HI-UAE" firstAttribute="top" secondItem="cJM-hT-D4W" secondAttribute="bottom" id="Frl-0g-YXj"/>
+                            <constraint firstItem="V4U-93-m2N" firstAttribute="trailing" secondItem="cJM-hT-D4W" secondAttribute="trailing" constant="40" id="HQu-hA-fzT"/>
                             <constraint firstItem="x9u-8Q-fU8" firstAttribute="leading" secondItem="V4U-93-m2N" secondAttribute="leading" id="ImJ-fL-4PP"/>
                             <constraint firstItem="ZXz-ET-tf2" firstAttribute="top" secondItem="V4U-93-m2N" secondAttribute="top" constant="15" id="NjP-bA-9fb"/>
                             <constraint firstItem="V4U-93-m2N" firstAttribute="trailing" secondItem="x9u-8Q-fU8" secondAttribute="trailing" id="Qg4-oA-VsU"/>
@@ -337,12 +349,14 @@
                             <constraint firstItem="nqm-HI-UAE" firstAttribute="top" secondItem="3c0-kY-olR" secondAttribute="bottom" id="ddO-H1-Rfb"/>
                             <constraint firstItem="V4U-93-m2N" firstAttribute="bottom" secondItem="nqm-HI-UAE" secondAttribute="bottom" id="evi-om-Fe5"/>
                             <constraint firstItem="V4U-93-m2N" firstAttribute="bottom" secondItem="x9u-8Q-fU8" secondAttribute="bottom" id="oV0-E8-30F"/>
+                            <constraint firstItem="cJM-hT-D4W" firstAttribute="leading" secondItem="V4U-93-m2N" secondAttribute="leading" constant="40" id="tef-YZ-nGN"/>
                             <constraint firstItem="V4U-93-m2N" firstAttribute="trailing" secondItem="3c0-kY-olR" secondAttribute="trailing" id="uwu-jC-2wm"/>
                             <constraint firstItem="nqm-HI-UAE" firstAttribute="leading" secondItem="V4U-93-m2N" secondAttribute="leading" id="yMZ-P5-Zvf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="lblCronometro" destination="ZXz-ET-tf2" id="rhI-06-YON"/>
+                        <outlet property="lblInstrucciones" destination="cJM-hT-D4W" id="vZJ-ME-Sd2"/>
                         <outlet property="maletaGuardada" destination="iuY-y8-ck5" id="BfW-5L-RNa"/>
                         <outletCollection property="btnMaletines" destination="9BB-fY-MxH" collectionClass="NSMutableArray" id="jTn-Oi-IRe"/>
                         <outletCollection property="btnMaletines" destination="yfw-5N-oAV" collectionClass="NSMutableArray" id="M73-c0-qcj"/>
@@ -1081,22 +1095,61 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecciona tu premio " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEw-BW-OyQ">
+                                <rect key="frame" x="40" y="80" width="310" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="c0C-4b-J9Y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maletin Guardado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdZ-W7-nV5">
+                                <rect key="frame" x="19.666666666666671" y="500" width="156" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="i7Z-XV-mx9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ultimo Maletin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5XE-dG-ZBC">
+                                <rect key="frame" x="214.66666666666663" y="500" width="156" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BNm-Wd-wPd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nt3-bq-bZS"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="C6x-qu-jhD" firstAttribute="centerX" secondItem="7lZ-mn-0MZ" secondAttribute="centerX" multiplier="0.5" id="0xz-CA-87B"/>
+                            <constraint firstItem="TdZ-W7-nV5" firstAttribute="top" secondItem="C6x-qu-jhD" secondAttribute="bottom" id="5f5-61-ss3"/>
                             <constraint firstItem="xL9-EO-PEm" firstAttribute="centerX" secondItem="7lZ-mn-0MZ" secondAttribute="centerX" multiplier="1.5" id="6Oo-ny-tAc"/>
                             <constraint firstItem="C6x-qu-jhD" firstAttribute="centerY" secondItem="7lZ-mn-0MZ" secondAttribute="centerY" id="7On-uC-d1u"/>
+                            <constraint firstItem="OEw-BW-OyQ" firstAttribute="top" secondItem="nt3-bq-bZS" secondAttribute="top" constant="80" id="8hr-cQ-1QF"/>
+                            <constraint firstItem="5XE-dG-ZBC" firstAttribute="trailing" secondItem="xL9-EO-PEm" secondAttribute="trailing" id="DBL-7J-lm7"/>
                             <constraint firstItem="vMa-OQ-YEj" firstAttribute="centerY" secondItem="7lZ-mn-0MZ" secondAttribute="centerY" multiplier="1.4" id="FZZ-3w-w0I"/>
                             <constraint firstItem="nt3-bq-bZS" firstAttribute="bottom" secondItem="r1I-Ef-zR6" secondAttribute="bottom" id="Guz-1a-wlN"/>
                             <constraint firstItem="r1I-Ef-zR6" firstAttribute="top" secondItem="nt3-bq-bZS" secondAttribute="top" id="IyY-zg-LUE"/>
+                            <constraint firstItem="5XE-dG-ZBC" firstAttribute="leading" secondItem="xL9-EO-PEm" secondAttribute="leading" id="KSA-ZN-8SD"/>
                             <constraint firstItem="nt3-bq-bZS" firstAttribute="trailing" secondItem="HS2-hv-8D4" secondAttribute="trailing" constant="15" id="O40-Ew-32G"/>
                             <constraint firstItem="xL9-EO-PEm" firstAttribute="centerY" secondItem="7lZ-mn-0MZ" secondAttribute="centerY" id="Pmz-O9-uuh"/>
+                            <constraint firstItem="5XE-dG-ZBC" firstAttribute="centerY" secondItem="TdZ-W7-nV5" secondAttribute="centerY" id="Sfm-Be-R5N"/>
                             <constraint firstItem="vMa-OQ-YEj" firstAttribute="centerX" secondItem="7lZ-mn-0MZ" secondAttribute="centerX" id="UnE-hz-1rw"/>
+                            <constraint firstItem="nt3-bq-bZS" firstAttribute="trailing" secondItem="OEw-BW-OyQ" secondAttribute="trailing" constant="40" id="WPf-9E-34B"/>
+                            <constraint firstItem="OEw-BW-OyQ" firstAttribute="leading" secondItem="nt3-bq-bZS" secondAttribute="leading" constant="40" id="XvF-co-xLR"/>
                             <constraint firstItem="HS2-hv-8D4" firstAttribute="top" secondItem="nt3-bq-bZS" secondAttribute="top" constant="15" id="dwg-HN-Hve"/>
+                            <constraint firstItem="TdZ-W7-nV5" firstAttribute="trailing" secondItem="C6x-qu-jhD" secondAttribute="trailing" id="eQq-NV-ohT"/>
                             <constraint firstItem="xL9-EO-PEm" firstAttribute="width" secondItem="C6x-qu-jhD" secondAttribute="width" id="hqH-cg-tbl"/>
                             <constraint firstItem="r1I-Ef-zR6" firstAttribute="leading" secondItem="nt3-bq-bZS" secondAttribute="leading" id="iT1-3d-dzC"/>
+                            <constraint firstItem="TdZ-W7-nV5" firstAttribute="leading" secondItem="C6x-qu-jhD" secondAttribute="leading" id="ry5-AX-a3l"/>
                             <constraint firstItem="nt3-bq-bZS" firstAttribute="trailing" secondItem="r1I-Ef-zR6" secondAttribute="trailing" id="sP1-DH-GNn"/>
                             <constraint firstItem="C6x-qu-jhD" firstAttribute="width" secondItem="7lZ-mn-0MZ" secondAttribute="width" multiplier="0.4" id="tou-LJ-53d"/>
                         </constraints>
@@ -1196,6 +1249,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXe-Jo-4NU">
+                                <rect key="frame" x="30" y="202" width="330" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="6pB-Af-Gex"/>
+                                    <constraint firstAttribute="height" constant="70" id="EqV-as-pLx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="65"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QQ4-hF-xa2"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1217,14 +1280,18 @@
                             <constraint firstItem="QQ4-hF-xa2" firstAttribute="trailing" secondItem="RLL-oO-pz2" secondAttribute="trailing" constant="100" id="lna-8m-YPQ"/>
                             <constraint firstItem="abs-bR-Etw" firstAttribute="top" secondItem="QQ4-hF-xa2" secondAttribute="top" id="mB8-bY-IEv"/>
                             <constraint firstItem="QQ4-hF-xa2" firstAttribute="trailing" secondItem="rBk-u9-yID" secondAttribute="trailing" constant="50" id="o9l-le-NZ8"/>
+                            <constraint firstItem="WXe-Jo-4NU" firstAttribute="leading" secondItem="QQ4-hF-xa2" secondAttribute="leading" constant="30" id="pb4-ah-tux"/>
+                            <constraint firstItem="QQ4-hF-xa2" firstAttribute="trailing" secondItem="WXe-Jo-4NU" secondAttribute="trailing" constant="30" id="rLP-nd-MgG"/>
                             <constraint firstItem="luO-8b-8Ny" firstAttribute="top" secondItem="hnb-Ne-OVw" secondAttribute="bottom" constant="20" id="rRi-AI-24Z"/>
                             <constraint firstItem="QQ4-hF-xa2" firstAttribute="trailing" secondItem="luO-8b-8Ny" secondAttribute="trailing" constant="50" id="raT-w4-LqN"/>
                             <constraint firstItem="LGB-bu-i9N" firstAttribute="top" secondItem="QQ4-hF-xa2" secondAttribute="top" constant="15" id="tgU-oZ-nUA"/>
                             <constraint firstItem="RLL-oO-pz2" firstAttribute="leading" secondItem="QQ4-hF-xa2" secondAttribute="leading" constant="100" id="u5D-cq-ubx"/>
+                            <constraint firstItem="hnb-Ne-OVw" firstAttribute="top" secondItem="WXe-Jo-4NU" secondAttribute="bottom" constant="50" id="zjh-4b-44r"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="lblCronometro" destination="LGB-bu-i9N" id="elT-1N-sur"/>
+                        <outlet property="lblCuentaRegresiva" destination="WXe-Jo-4NU" id="u1n-jy-Rge"/>
                         <outlet property="lblPremio" destination="luO-8b-8Ny" id="Pki-M4-BGl"/>
                         <segue destination="eYH-cB-8aY" kind="presentation" identifier="premio" modalPresentationStyle="fullScreen" id="Pvl-hV-rk6"/>
                         <segue destination="4Oa-MC-4sP" kind="presentation" identifier="regresarJuego" modalPresentationStyle="fullScreen" id="BdU-RZ-7C3"/>
